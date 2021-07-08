@@ -49,7 +49,7 @@ func (consulClient *DiscoveryClientInstance) Register(instanceId, svcHost, healt
 		},
 		Check: &api.AgentServiceCheck{
 			DeregisterCriticalServiceAfter: "30s",
-			HTTP:                           "http://" + svcHost + ":" + strconv.Itoa(port) + healthCheckUrl,
+			HTTP:                           svcHost + ":" + strconv.Itoa(port) + healthCheckUrl,
 			Interval:                       "15s",
 		},
 	}
@@ -59,6 +59,7 @@ func (consulClient *DiscoveryClientInstance) Register(instanceId, svcHost, healt
 
 	if err != nil {
 		if logger != nil {
+			fmt.Println(err)
 			logger.Println("Register Service Error!")
 		}
 		return false

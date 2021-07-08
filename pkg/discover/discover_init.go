@@ -22,6 +22,8 @@ var NoInstanceExistedErr = errors.New("no available client")
 
 func init() {
 	// 1.实例化一个 Consul 客户端，此处实例化了原生态实现版本
+	fmt.Println(bootstrap.DiscoverConfig.Host)
+	fmt.Println(bootstrap.DiscoverConfig.Port)
 	ConsulService = New(bootstrap.DiscoverConfig.Host, bootstrap.DiscoverConfig.Port)
 	LoadBalance = new(loadbalance.RandomLoadBalance)
 	Logger = log.New(os.Stderr, "", log.LstdFlags)
