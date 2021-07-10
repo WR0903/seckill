@@ -5,8 +5,9 @@ import (
 
 	endpts "oauth-server/endpoint"
 
+	"pb"
+
 	"github.com/go-kit/kit/transport/grpc"
-	"github.com/longjoy/micro-go-book/ch13-seckill/pb"
 )
 
 type grpcServer struct {

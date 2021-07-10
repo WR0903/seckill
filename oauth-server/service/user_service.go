@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 	"oauth-server/model"
-	"github.com/longjoy/micro-go-book/ch13-seckill/pb"
+	"pb"
 	"pkg/client"
 )
 

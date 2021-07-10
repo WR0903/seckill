@@ -6,7 +6,7 @@ import (
 	"oauth-server/endpoint"
 	"oauth-server/model"
 
-	"github.com/longjoy/micro-go-book/ch13-seckill/pb"
+	"pb"
 )
 
 func EncodeGRPCCheckTokenRequest(_ context.Context, r interface{}) (interface{}, error) {

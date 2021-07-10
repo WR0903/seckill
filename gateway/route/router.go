@@ -13,9 +13,10 @@ import (
 	"strings"
 	"sync"
 
+	"pb"
+
 	"github.com/afex/hystrix-go/hystrix"
 	"github.com/go-kit/kit/log"
-	"github.com/longjoy/micro-go-book/ch13-seckill/pb"
 	"github.com/openzipkin/zipkin-go"
 	zipkinhttpsvr "github.com/openzipkin/zipkin-go/middleware/http"
 )

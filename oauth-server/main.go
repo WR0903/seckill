@@ -21,8 +21,9 @@ import (
 	register "pkg/discover"
 	"pkg/mysql"
 
+	"pb"
+
 	kitzipkin "github.com/go-kit/kit/tracing/zipkin"
-	"github.com/longjoy/micro-go-book/ch13-seckill/pb"
 	"github.com/openzipkin/zipkin-go/propagation/b3"
 	"golang.org/x/time/rate"
 	"google.golang.org/grpc"
