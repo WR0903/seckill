@@ -52,6 +52,7 @@ func preFilter(r *http.Request) bool {
 		return true
 	}
 	authToken := r.Header.Get("Authorization")
+	fmt.Println(authToken)
 	if authToken == "" {
 		return false
 	}

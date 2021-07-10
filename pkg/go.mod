@@ -10,7 +10,8 @@ require (
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/gogo/protobuf v1.3.2 // indirect
-	github.com/gohouse/gorose/v2 v2.1.10
+	github.com/gohouse/golib v0.0.0-20200727025018-43fec7d17e79 // indirect
+	github.com/gohouse/gorose/v2 v2.1.2
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/uuid v1.1.2 // indirect
