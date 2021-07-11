@@ -10,3 +10,6 @@
 ```consul agent -dev```启动consul   
 
 进入gateway目录，运行```go run main.go```
+
+### oauth-server启动方法
+保持gateway启动，进入oauth-server目录，运行```go run main.go```
