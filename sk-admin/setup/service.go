@@ -4,7 +4,6 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -12,11 +11,11 @@ import (
 	"time"
 
 	register "pkg/discover"
+	"sk-admin/config"
 	"sk-admin/endpoint"
 	"sk-admin/plugins"
 	"sk-admin/service"
 	"sk-admin/transport"
-	"user-service/config"
 
 	kitprometheus "github.com/go-kit/kit/metrics/prometheus"
 	kitzipkin "github.com/go-kit/kit/tracing/zipkin"
@@ -27,7 +26,7 @@ import (
 //初始化Http服务
 func InitServer(host string, servicePort string) {
 
-	log.Printf("port is ", servicePort)
+	fmt.Printf("port is %s", servicePort)
 
 	flag.Parse()
 
