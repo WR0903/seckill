@@ -11,7 +11,6 @@ var engin *gorose.Engin
 var err error
 
 func InitMysql(hostMysql, portMysql, userMysql, pwdMysql, dbMysql string) {
-	fmt.Println("王然")
 	fmt.Println(userMysql)
 	fmt.Println(dbMysql)
 

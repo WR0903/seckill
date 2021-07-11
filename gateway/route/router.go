@@ -13,7 +13,7 @@ import (
 	"strings"
 	"sync"
 
-	"pb"
+	"github.com/longjoy/micro-go-book/ch13-seckill/pb"
 
 	"github.com/afex/hystrix-go/hystrix"
 	"github.com/go-kit/kit/log"

@@ -5,7 +5,7 @@ import (
 
 	endpts "oauth-server/endpoint"
 
-	"pb"
+	"github.com/longjoy/micro-go-book/ch13-seckill/pb"
 
 	"github.com/go-kit/kit/transport/grpc"
 )

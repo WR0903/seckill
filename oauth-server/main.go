@@ -21,7 +21,7 @@ import (
 	register "pkg/discover"
 	"pkg/mysql"
 
-	"pb"
+	"github.com/longjoy/micro-go-book/ch13-seckill/pb"
 
 	kitzipkin "github.com/go-kit/kit/tracing/zipkin"
 	"github.com/openzipkin/zipkin-go/propagation/b3"

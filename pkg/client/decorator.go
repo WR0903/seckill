@@ -9,6 +9,7 @@ import (
 	"pkg/discover"
 	"pkg/loadbalance"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/afex/hystrix-go/hystrix"
@@ -56,7 +57,11 @@ func (manager *DefaultClientManager) DecoratorInvoke(path string, hystrixName st
 		instances := manager.discoveryClient.DiscoverServices(manager.serviceName, manager.logger)
 		if instance, err := manager.loadBalance.SelectService(instances); err == nil {
 			if instance.GrpcPort > 0 {
-				if conn, err := grpc.Dial(instance.Host+":"+strconv.Itoa(instance.GrpcPort), grpc.WithInsecure(),
+				host := instance.Host
+				if strings.HasPrefix(host, "http://") {
+					host = host[7:] //grpc不用带协议
+				}
+				if conn, err := grpc.Dial(host+":"+strconv.Itoa(instance.GrpcPort), grpc.WithInsecure(),
 					grpc.WithUnaryInterceptor(otgrpc.OpenTracingClientInterceptor(genTracer(tracer), otgrpc.LogPayloads())), grpc.WithTimeout(1*time.Second)); err == nil {
 					if err = conn.Invoke(ctx, path, inputVal, outVal); err != nil {
 						return err
