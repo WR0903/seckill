@@ -53,6 +53,7 @@ type RedisConf struct {
 	IdBlackListQueue     string        //用户黑名单队列
 	IpBlackListQueue     string        //IP黑名单队列
 	Host                 string
+	Port                 string
 	Password             string
 	Db                   int
 }

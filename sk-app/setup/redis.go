@@ -1,19 +1,22 @@
 package setup
 
 import (
-	"github.com/go-redis/redis"
-	"github.com/unknwon/com"
 	"log"
 	conf "pkg/config"
 	"sk-app/service/srv_redis"
 	"time"
+
+	"github.com/go-redis/redis"
+	"github.com/unknwon/com"
 )
+
+var client *redis.Client
 
 //初始化Redis
 func InitRedis() {
 	log.Printf("init redis %s", conf.Redis.Password)
-	client := redis.NewClient(&redis.Options{
-		Addr:     conf.Redis.Host,
+	client = redis.NewClient(&redis.Options{
+		Addr:     conf.Redis.Host + ":" + conf.Redis.Port,
 		Password: conf.Redis.Password,
 		DB:       conf.Redis.Db,
 	})

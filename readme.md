@@ -13,3 +13,9 @@
 
 ### oauth-server启动方法
 保持gateway启动，进入oauth-server目录，运行```go run main.go```
+
+
+### sk-core启动方法
+zookeeper启动 ```docker run --privileged=true -d --name zookeeper --publish 2181:2181  -d zookeeper:latest```   
+正常方式启动redis   
+进入sk-core目录下，运行```go run main.go```
