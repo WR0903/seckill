@@ -10,25 +10,21 @@ import (
 	"github.com/unknwon/com"
 )
 
-var client *redis.Client
-
 //初始化Redis
 func InitRedis() {
-	log.Printf("init redis %s", conf.Redis.Password)
-	client = redis.NewClient(&redis.Options{
-		Addr:     conf.Redis.Host + ":" + conf.Redis.Port,
+	srv_redis.Client = redis.NewClient(&redis.Options{
+		Addr:     conf.Redis.Host,
 		Password: conf.Redis.Password,
 		DB:       conf.Redis.Db,
 	})
 
-	_, err := client.Ping().Result()
+	_, err := srv_redis.Client.Ping().Result()
 	if err != nil {
 		log.Printf("Connect redis failed. Error : %v", err)
 	}
-	log.Printf("init redis success")
-	conf.Redis.RedisConn = client
+	conf.Redis.RedisConn = srv_redis.Client
 
-	loadBlackList(client)
+	loadBlackList(srv_redis.Client)
 	initRedisProcess()
 }
 

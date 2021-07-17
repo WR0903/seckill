@@ -11,7 +11,7 @@ import (
 	"syscall"
 	"time"
 
-	"pb"
+	"github.com/longjoy/micro-go-book/ch13-seckill/pb"
 	"pkg/bootstrap"
 	conf "pkg/config"
 	register "pkg/discover"

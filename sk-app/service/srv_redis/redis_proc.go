@@ -6,10 +6,15 @@ import (
 	"log"
 	"time"
 
+	"sk-app/config"
+
+	"sk-app/model"
+
+	"github.com/go-redis/redis"
 	conf "github.com/longjoy/micro-go-book/ch13-seckill/pkg/config"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-app/config"
-	"github.com/longjoy/micro-go-book/ch13-seckill/sk-app/model"
 )
+
+var Client *redis.Client
 
 //写数据到Redis
 func WriteHandle() {
@@ -17,7 +22,7 @@ func WriteHandle() {
 		fmt.Println("wirter data to redis.")
 		req := <-config.SkAppContext.SecReqChan
 		fmt.Println("accessTime : ", req.AccessTime)
-		conn := conf.Redis.RedisConn
+		conn := Client
 
 		data, err := json.Marshal(req)
 		if err != nil {
@@ -37,7 +42,7 @@ func WriteHandle() {
 //从redis读取数据
 func ReadHandle() {
 	for {
-		conn := conf.Redis.RedisConn
+		conn := Client
 		//阻塞弹出
 		data, err := conn.BRPop(time.Second, conf.Redis.Layer2proxyQueueName).Result()
 		if err != nil {

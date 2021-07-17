@@ -13,12 +13,9 @@ require (
 	github.com/spf13/viper v1.7.1
 	golang.org/x/time v0.0.0-20210611083556-38a9dc6acbc6
 	google.golang.org/grpc v1.39.0
-	pb v0.0.0-00010101000000-000000000000
 	pkg v0.0.0
 )
 
 replace pkg => ../pkg
-
-replace pb => ../pb
 
 replace google.golang.org/grpc => google.golang.org/grpc v1.26.0

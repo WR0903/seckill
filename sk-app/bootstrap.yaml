@@ -13,6 +13,7 @@ discover:
   port: 8500
   instanceId: sk-app-localhost
   serviceName: sk-app # 要缓存sk-app
+  Weight: 1
 
 
 config:
@@ -34,6 +35,7 @@ mysql:
 redis:
   host: localhost
   port: 6379
+  password: 6378
   db: 0
   proxy2layer_queue_name: name
   ip_black_list_hash: 12
