@@ -1,14 +1,14 @@
 
 http:
-  host: localhost
+  host: http://127.0.0.1
   port: 9009
 
 rpc:
-  host: localhost
-  port: 9108
+  host: http://127.0.0.1
+  port: 9008
 
 discover:
-  Host: 114.67.98.210
+  Host: http://127.0.0.1
   port: 8500
   instanceId: user-service-localhost
   serviceName: user
@@ -29,7 +29,7 @@ mysql:
   host: 127.0.0.1
   port: 3306
   user: root
-  db: oauth
+  db: user
 
 redis:
   host: localhost

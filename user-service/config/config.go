@@ -38,7 +38,7 @@ func init() {
 	if err := conf.Sub("trace", &conf.TraceConfig); err != nil {
 		Logger.Log("Fail to parse trace", err)
 	}
-	zipkinUrl := "http://" + conf.TraceConfig.Host + ":" + conf.TraceConfig.Port + conf.TraceConfig.Url
+	zipkinUrl := conf.TraceConfig.Host + ":" + conf.TraceConfig.Port + conf.TraceConfig.Url
 	Logger.Log("zipkin url", zipkinUrl)
 	initTracer(zipkinUrl)
 }

@@ -3,12 +3,13 @@ package plugins
 import (
 	"context"
 	"errors"
+	"time"
+	"user-service/service"
+
 	"github.com/go-kit/kit/endpoint"
 	"github.com/go-kit/kit/metrics"
 	"github.com/juju/ratelimit"
 	"golang.org/x/time/rate"
-	"time"
-	"user-service/service"
 )
 
 var ErrLimitExceed = errors.New("Rate limit exceed!")

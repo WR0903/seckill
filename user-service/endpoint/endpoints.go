@@ -29,7 +29,7 @@ func (u *UserEndpoints) Check(ctx context.Context, username string, password str
 }
 
 func (ue *UserEndpoints) HealthCheck() bool {
-	return false
+	return true
 }
 
 var (
