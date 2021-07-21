@@ -117,11 +117,14 @@ func (router HystrixRouter) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			destPath := strings.Join(pathArray[2:], "/")
 
 			//随机选择一个服务实例
-			router.logger.Log("service id", serviceInstance.Host, serviceInstance.Port)
-
+			host := serviceInstance.Host
+			if strings.HasPrefix(host, "http://") {
+				host = host[7:]
+			}
+			router.logger.Log("service id", host, serviceInstance.Port)
 			//设置代理服务地址信息
 			req.URL.Scheme = "http"
-			req.URL.Host = fmt.Sprintf("%s:%d", serviceInstance.Host, serviceInstance.Port)
+			req.URL.Host = fmt.Sprintf("%s:%d", host, serviceInstance.Port)
 			req.URL.Path = "/" + destPath
 		}
 
