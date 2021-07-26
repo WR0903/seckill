@@ -35,7 +35,7 @@ mysql:
 redis:
   host: localhost
   port: 6379
-  password: 6378
+  password: ""
   db: 0
   proxy2layer_queue_name: name
   ip_black_list_hash: 12

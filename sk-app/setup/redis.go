@@ -13,7 +13,7 @@ import (
 //初始化Redis
 func InitRedis() {
 	srv_redis.Client = redis.NewClient(&redis.Options{
-		Addr:     conf.Redis.Host,
+		Addr:     conf.Redis.Host + ":" + conf.Redis.Port,
 		Password: conf.Redis.Password,
 		DB:       conf.Redis.Db,
 	})

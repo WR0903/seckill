@@ -11,7 +11,7 @@ import (
 //初始化redis
 func InitRedis() {
 	client := redis.NewClient(&redis.Options{
-		Addr:     conf.Redis.Host,
+		Addr:     conf.Redis.Host + ":" + conf.Redis.Port,
 		Password: conf.Redis.Password,
 		DB:       conf.Redis.Db,
 	})
